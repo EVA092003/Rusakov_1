@@ -4,7 +4,7 @@ using namespace std;
 class QueuePtr1head
 {
 	int csize;
-	int* nop;
+	uint64_t* nop;
 	struct list
 	{
 		int data; // поле данных
@@ -16,10 +16,23 @@ public:
 		csize = 0;
 		head = nullptr;
 	}
-	void setNOP(int* _nop) {
+	~QueuePtr1head()
+	{
+		if (!head)
+			return;
+		list* ptr = head;
+		list* next = ptr->next;
+		while (next)
+		{
+			delete ptr;
+			ptr = next;
+			next = ptr->next;
+		}
+	}
+	void setNOP(uint64_t* _nop) {
 		nop = _nop;
 	}
-	int* getNOP() {
+	uint64_t* getNOP() {
 		return nop;
 	}
 	void push(int element) { // 6
@@ -55,6 +68,8 @@ public:
 		return csize;
 	}
 	void pop() {
+		if (csize == 0)
+			return;
 		if (csize == 1) {
 			delete(head);
 			csize = 0;

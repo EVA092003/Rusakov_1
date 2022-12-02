@@ -4,21 +4,26 @@
 class Adapter4queuePtr1head
 {
 	QueuePtr1head* qu;
-	int* nop;
+	uint64_t* nop;
 
 public:
 	Adapter4queuePtr1head() {
 		//cout << "\nОбычный конструктор\n";
 		qu = new QueuePtr1head();
 	}
+	~Adapter4queuePtr1head()
+	{
+		delete qu;
+	}
 	//adapter4QueuePtr(const adapter4QueuePtr& obj)
 	//{
 	//	cout << "\nКонструктор копирования\n";
 	//}
-	void setNOP(int* _nop) {
+	void setNOP(uint64_t* _nop) {
 		nop = _nop;
+		qu->setNOP(nop);
 	}
-	int* getNOP() {
+	uint64_t* getNOP() {
 		return nop;
 	}
 	void display() { 
@@ -41,6 +46,7 @@ public:
 		int element = -1;
 		if ((ind >= 0) and (ind < size)) {
 			QueuePtr1head* queTmp1 = new QueuePtr1head();
+			queTmp1->setNOP(nop);
 			for (int i = 0; i <= ind; i++) {
 				queTmp1->push(front());
 				element = front();
@@ -54,6 +60,7 @@ public:
 				push(queTmp1->front());
 				queTmp1->pop();
 			}
+			delete queTmp1;
 		}
 		return element;
 	}
@@ -61,6 +68,8 @@ public:
 		int size = qu->size();
 		if ((ind >= 0) and (ind < size)) {
 			QueuePtr1head* queTmp1 = new QueuePtr1head();
+			queTmp1->setNOP(nop);
+
 			for (int i = 0; i < ind; i++) {
 				queTmp1->push(front());
 				pop();
@@ -75,10 +84,13 @@ public:
 				push(queTmp1->front());
 				queTmp1->pop();
 			}
+			delete queTmp1;
 		}
 	}
 	Adapter4queuePtr1head* copy() {
 		Adapter4queuePtr1head* queTmp1 = new Adapter4queuePtr1head();
+		queTmp1->setNOP(nop);
+
 		int size = qu->size();
 		for (int i = 0; i < size; i++) {
 			queTmp1->push(front());
