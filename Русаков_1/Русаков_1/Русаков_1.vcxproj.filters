@@ -29,9 +29,6 @@
     <ClInclude Include="N_op.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="F.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="QueueMas.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>

@@ -181,8 +181,6 @@ void example_work_adapter4queueMas(int* _nop) {
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    // var 43
-    //Указатели	Очередь с 1 головой	Естественное двухпутевое слияние
     //example_work_QueuePtr1head();
     //example_work_adapter4queuePtr1head();
     //example_work_quickSort();

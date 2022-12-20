@@ -22,7 +22,7 @@ public:
         return nop;
     }
     void display() {  // 2 + 3n + 2n  = 2 + 5n
-        QueueMas* queTmp1 = new QueueMas(); *nop += 1; //1
+        QueueMas* queTmp1 = new QueueMas(); *nop += 1;//1
         int c_size = size(); *nop += 1; //2
         for (int i = 0; i < c_size; i++) { //3n
             queTmp1->push(front()); *nop += 1;

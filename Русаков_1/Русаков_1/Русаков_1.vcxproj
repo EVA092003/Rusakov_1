@@ -144,7 +144,6 @@
   <ItemGroup>
     <ClInclude Include="Adapter4queuePtr1head.h" />
     <ClInclude Include="N_op.h" />
-    <ClInclude Include="F.h" />
     <ClInclude Include="QueueMas.h" />
     <ClInclude Include="QueuePtr1head.h" />
   </ItemGroup>
